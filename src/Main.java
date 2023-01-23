@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -8,6 +9,13 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
         getSizeEvenNumbers(1, 2, 3, 4, 6, 9);
+
+        Stream<Integer> stream = new ArrayList<>(Arrays.asList(1, 2, 3, 5, 8, 13, 21)).stream();
+        findMinMax(
+                stream,
+                (x, y) -> x.compareTo(y),
+                (x, y) -> System.out.println(String.format("min: %s, max: %s", x, y))
+        );
     }
 
     public static <T> void findMinMax(

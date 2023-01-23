@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-
+        getSizeEvenNumbers(1, 2, 3, 4, 6, 9);
     }
 
     public static <T> void findMinMax(
@@ -28,5 +28,11 @@ public class Main {
                 minMaxConsumer.accept(null, null);
             }
         }
+    }
+
+    public static void getSizeEvenNumbers(Integer... n) {
+        ArrayList<Integer> numbers = new ArrayList<>(List.of(n));
+        List<Integer> num = numbers.stream().filter(e -> (e % 2 == 0)).toList();
+        System.out.println("Количество чётных чисел - " + num.size());
     }
 }
